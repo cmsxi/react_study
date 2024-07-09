@@ -1,10 +1,20 @@
+import Board from './Board';
+
 const test = <h1>안녕</h1>; // 정의 및 중괄호 표현 ~ js의 표현식 직접 사용할 수 있다
 
 const Header = () => {
+    let number = [1, 2, 3, 4, 5];
+    // let board = number.map((v, i) => <Board />);
+
     return (
         <header>
             <h1>header</h1>
             {test}
+            <ul>
+                {number.map((v, i) => (
+                    <Board key={i} number={i} />
+                ))}
+            </ul>
         </header>
     );
 };

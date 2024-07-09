@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
+root.render(<App />); // app이 아니라 다른 JS파일 넣어도 괜찮으나, 대부분은 App으로 사용
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
