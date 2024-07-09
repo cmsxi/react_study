@@ -8,7 +8,8 @@ logs
 .backup.
 .back.
 
-node_modules
+### package-lock.json, package.json만 있으면 아래 파일들 개발자가 다운받을 수 있기 때문에 git에 함께 올리지 않음
+node_modules 
 bower_components
 
 .sublime
@@ -17,4 +18,5 @@ psd
 thumb
 sketch
 
+build
 # End of httpswww.toptal.comdevelopersgitignoreapireact
