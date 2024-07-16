@@ -5,7 +5,10 @@ import TodoList from './component/TodoList';
 import TestComp from './component/TestComp';
 
 // import { useState, useRef } from 'react';
-import { useReducer, useRef, useCallback } from 'react';
+import React, { useReducer, useRef, useCallback, useMemo } from 'react';
+
+export const TodoStateContext = React.createContext(); // 컨텍스트 변수는 컴포넌트 바깥에 선언
+export const TodoDispatchContext = React.createContext();
 
 const mockTodo = [
     {
@@ -106,12 +109,20 @@ function App() {
         });
     }, []);
 
+    const memorizedDispatches = useMemo(() => {
+        return { onCreate, onUpdate, onDelete };
+    }, []);
+
     return (
         <div className="App">
             <TestComp />
             <Header />
-            <TodoEditor onCreate={onCreate} />
-            <TodoList todo={todo} onUpdate={onUpdate} onDelete={onDelete} />
+            <TodoStateContext.Provider value={todo}>
+                <TodoDispatchContext.Provider value={memorizedDispatches}>
+                    <TodoEditor />
+                    <TodoList />
+                </TodoDispatchContext.Provider>
+            </TodoStateContext.Provider>
         </div>
     );
 }

@@ -1,6 +1,10 @@
 import './TodoEditor.css';
-import { useState, useRef } from 'react';
-const TodoEditor = ({ onCreate }) => {
+import { useState, useRef, useContext } from 'react';
+import { TodoDispatchContext } from '../App';
+
+const TodoEditor = () => {
+    const { onCreate } = useContext(TodoDispatchContext);
+
     const [content, setContent] = useState('');
     const inputRef = useRef();
     const onChangeContent = (e) => {
