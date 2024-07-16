@@ -129,6 +129,9 @@ function App() {
                     <Link to={'/new'}>new</Link>
                     <Link to={'/diary'}>diary</Link>
                     <Link to={'/edit'}>edit</Link> */}
+                            {/* 정적 페이지로 최적화하기 :
+                            대규모 서버는 데이터를 그때그때 가져오는 것이 아니라 데이터를 페이지에 미리 저장해두어 바로 불러오는 방식을 사용하기도 함
+                    완벽한 실시간이 필요하지 않다면 해당 방식이 더 효율적일 수 있음  */}
                         </div>
                     </div>
                 </DiaryDispatchContext.Provider>

@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const sortOptionList = [
-    { value: 'lasest', name: '최신순' },
+    { value: 'latest', name: '최신순' },
     { value: 'oldest', name: '오래된 순' },
 ];
 

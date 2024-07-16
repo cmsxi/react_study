@@ -1,5 +1,5 @@
 import './Editor.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback } from 'react';
 import { getFormattedDate, emotionList } from '../util';
 import Button from './Button';
 import { useNavigate } from 'react-router-dom';
@@ -11,6 +11,7 @@ const Editor = ({ initData, onSubmit }) => {
         navigate(-1);
     };
 
+    // state는 해당 컴포넌트 내에서만 쓰이는 지역변수와 같은 느낌의 변수
     const [state, setState] = useState({
         date: getFormattedDate(new Date()),
         emotionId: 3,
@@ -31,12 +32,12 @@ const Editor = ({ initData, onSubmit }) => {
     const handleSubmit = () => {
         onSubmit(state);
     };
-    const handleChangeEmotion = (emotionId) => {
-        setState({
+    const handleChangeEmotion = useCallback((emotionId) => {
+        setState((state) => ({
             ...state,
             emotionId,
-        });
-    };
+        }));
+    }, []);
 
     useEffect(() => {
         if (initData) {
